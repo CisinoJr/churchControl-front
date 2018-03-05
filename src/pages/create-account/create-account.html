@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>
+        Novo Usuário
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <h1 text-center>Exemplo de criação de conta</h1>
+  
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" name="firstName" [(ngModel)]="model.firstName"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" name="lastName" [(ngModel)]="model.lastName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+  <button ion-button block (click)="createAccount()" color="primary">Criar conta</button>
+  
+</ion-content>
