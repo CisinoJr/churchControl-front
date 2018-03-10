@@ -21,12 +21,12 @@ export class LoginPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private userProvider: UsersProvider) {
     this.model = new User();
-    this.model.email = 'sydney@fife';
-    this.model.password = 'pistol';
+    this.model.username = 'admin';
+    this.model.password = 'admin';
   }
  
   login() {
-    this.userProvider.login(this.model.email, this.model.password)
+    this.userProvider.login(this.model.username, this.model.password)
       .then((result: any) => {
         this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
  
@@ -42,6 +42,6 @@ export class LoginPage {
 }
  
 export class User {
-  email: string;
+  username: string;
   password: string;
 }

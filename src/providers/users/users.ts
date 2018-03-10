@@ -4,16 +4,17 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UsersProvider {
-  private API_URL = 'https://reqres.in/api/'
+  //  private API_URL = 'https://reqres.in/api/'
+  private API_URL = 'https://churchcontrol-test.herokuapp.com/api/';
 
   constructor(public http: Http) { }
 
-  createAccount(firstName: string, lastName: string, email: string, password: string) {
+  createAccount(login: string, email: string, password: string, langKey: string) {
     return new Promise((resolve, reject) => {
       var data = {
-        first_name: firstName,
-        last_name: lastName,
         email: email,
+        langKey: langKey,
+        login: login,
         password: password
       };
 
@@ -21,26 +22,26 @@ export class UsersProvider {
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 
-  login(email: string, password: string) {
+  login(username: string, password: string) {
     return new Promise((resolve, reject) => {
       var data = {
-        email: email,
+        username: username,
         password: password
       };
 
-      this.http.post(this.API_URL + 'login', data)
+      this.http.post(this.API_URL + 'authenticate', data)
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 
@@ -53,9 +54,9 @@ export class UsersProvider {
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 
@@ -67,9 +68,9 @@ export class UsersProvider {
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 
@@ -81,9 +82,9 @@ export class UsersProvider {
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 
@@ -99,9 +100,9 @@ export class UsersProvider {
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 
@@ -113,9 +114,9 @@ export class UsersProvider {
         .subscribe((result: any) => {
           resolve(result.json());
         },
-        (error) => {
-          reject(error.json());
-        });
+          (error) => {
+            reject(error.json());
+          });
     });
   }
 }
